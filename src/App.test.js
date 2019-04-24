@@ -1,9 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+// import ReactDOM from 'react-dom';
+import { render } from 'react-testing-library';
+import App from './components/app';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it('renders "hello" message', () => {
+  const { getByText } = render(<App />);
+  expect(getByText('hello!')).toBeInTheDocument();
+});
+
+it('renders list of to-do\'s', () => {
+  const { getByText } = render(<App />);
+  expect(getByText('list')).toBeInTheDocument();
+});
+
+it('renders list of to-do\'s', () => {
+  const { getByText } = render(<App />);
+  expect(getByText(/add/i)).toBeInTheDocument();
 });
