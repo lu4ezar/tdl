@@ -1,8 +1,14 @@
 import React from 'react';
+import Todo from './todo';
 
-const List = (props) =>
-    <div>
+const List = ({ list }) => {
+    const getList = list => list.map(todo => <Todo key={todo.id} todo={todo} />)
+    return(<div>
         <h2>list</h2>
-    </div>
+        <ul data-testid='ul'>
+            {getList(list)}
+        </ul>
+    </div>)
+}
 
 export default List;
