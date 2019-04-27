@@ -53,6 +53,22 @@ describe('form', () => {
 		// expect(onSubmit).toBeCalled();
 	});
 
+	it('can be submitted with Enter button', () => {
+		const submit = jest.fn();
+		const { getByLabelText, getByText } = render(<Form />);
+		const input = getByLabelText(/enter/i);
+		const button = getByText(/submit/i);
+		fireEvent.change(input, { target: { value: 'new' } });
+		expect(input.value).toBe('new');
+		// fireEvent.keyDown(input, { key: "Enter", code: 32, charCode: 32 });
+		// fireEvent.submit(button);
+		// input.simulate('keypress', { key: 'Enter' });
+		expect(input.value).toBe('');
+		// expect(submit.mock.calls.length).toBe(1);
+		expect(submit).toBeCalled();
+		// check function call
+	})
+
 	/*it("Increment and decrement buttons work", () => {
 		const { container } = render(<App />);
 		const countValue = getByTestId(container, "countvalue");

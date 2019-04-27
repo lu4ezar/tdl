@@ -17,7 +17,7 @@ const Form = () => {
 			<form onSubmit={handleClick}>
 				<label htmlFor='input'>Enter Text</label>
 				<input id='input' value={input} onChange={handleChange} />
-				<button onClick={handleClick}>submit</button>
+				<button>submit</button>
 			</form>
 		</div>
 	);
