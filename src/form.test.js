@@ -41,7 +41,7 @@ describe('form', () => {
 		const input = getByLabelText(/enter/i);
 		const submitButton = getByText(/submit/i);
 		// const handleClick = jest.fn();
-		// const onSubmit = jest.fn();
+		const onSubmit = jest.fn();
 		expect(input).toBeDefined();
 		expect(submitButton).toBeDefined();
 		expect(input.value).toBe('');
@@ -50,23 +50,24 @@ describe('form', () => {
 		fireEvent.click(getByText('submit'));
 		expect(input.value).toBe('');
 		// expect(handleClick).toBeCalled();
-		// expect(onSubmit).toBeCalled();
+		expect(onSubmit).toBeCalled();
 	});
 
 	it('can be submitted with Enter button', () => {
 		const submit = jest.fn();
-		const { getByLabelText, getByText } = render(<Form />);
+		const { getByLabelText, getByText, getByTestId } = render(<Form />);
 		const input = getByLabelText(/enter/i);
 		const button = getByText(/submit/i);
+		const form = getByTestId('form');
 		fireEvent.change(input, { target: { value: 'new' } });
 		expect(input.value).toBe('new');
-		// fireEvent.keyDown(input, { key: "Enter", code: 32, charCode: 32 });
-		// fireEvent.submit(button);
+		fireEvent.keyDown(form, { key: "Enter", code: 32, charCode: 32 });
+		fireEvent.submit(button);
 		// input.simulate('keypress', { key: 'Enter' });
 		expect(input.value).toBe('');
 		// expect(submit.mock.calls.length).toBe(1);
 		expect(submit).toBeCalled();
-		// check function call
+		// + check function call here
 	})
 
 	/*it("Increment and decrement buttons work", () => {

@@ -1,6 +1,11 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { render } from 'react-testing-library';
+import {
+  render,
+  getByTestId,
+  //getByText,
+  fireEvent
+} from 'react-testing-library';
 import App from './components/app';
 
 describe('app', () => {
@@ -19,20 +24,18 @@ describe('app', () => {
     expect(getByText(/add/i)).toBeInTheDocument();
   });
   it('saves list to localStorage before unload', () => {
-    /* it("Submitting a name via the input field changes the name state value", () => {
-
     const { container, rerender } = render(<App />);
-    const nameValue = getByTestId(container, "namevalue");
-    const inputName = getByTestId(container, "inputName");
+    const nameValue = getByTestId(container, 'id');
+    const input = getByTestId(container, 'input');
 
-    const submitButton = getByTestId(container, "submitRefButton");
-    const newName = "Ben";
+    const submitButton = getByTestId(container, 'submitRefButton');
+    const newName = 'Ben';
 
-    fireEvent.change(inputName, { target: { value: newName } });
+    fireEvent.change(input, { target: { value: newName } });
     fireEvent.click(submitButton);
     expect(nameValue.textContent).toEqual(newName);
 
     rerender(<App />);
-    expect(window.localStorage.getItem("name")).toBe(newName);*/
-  })
+    expect(window.localStorage.getItem('name')).toBe(newName);
+  });
 });
