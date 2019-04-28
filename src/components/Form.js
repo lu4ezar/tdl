@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 
-const Form = (props) => {
+const Form = ({ addTodo, id }) => {
 	const [input, setInput] = useState('');
-	// const [list, addItem] = useState([]);
-	const handleChange = (e) => {
+	const handleChange = e => {
 		setInput(e.target.value);
 	};
-	const handleSubmit = (e) => {
+	const handleSubmit = e => {
 		e.preventDefault();
-		// addItem([...list, input]);
-		props.onSubmit(e, input);
+		const value = input.trim();
+		if (!value()) {
+			return;
+		}
+		addTodo(value, id);
 		setInput('');
 	};
 	return (
@@ -17,8 +19,13 @@ const Form = (props) => {
 			<h3>add new to-do</h3>
 			<form data-testid='form' onSubmit={handleSubmit}>
 				<label htmlFor='input'>Enter Text</label>
-				<input id='input' value={input} onChange={handleChange} required />
-				<button type="submit">submit</button>
+				<input
+					data-testid='input'
+					id='input'
+					value={input}
+					onChange={handleChange}
+				/>
+				<button type='submit'>submit</button>
 			</form>
 		</div>
 	);
