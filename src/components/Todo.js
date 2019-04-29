@@ -1,44 +1,50 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'rebass';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 
-const StyledTodo = styled.div`
+const StyledTodo = styled(Paper)`
 	display: flex;
-	margin: 1%;
-	padding: 4px;
+	margin: 2em;
+	padding: 1em;
 	list-style: none;
 	justify-content: space-between;
-	width: 100%;
-	background: #324f5b;
-	cursor: pointer;
+	align-items: center;
+	background: gray;
 	color: white;
 	font-weight: bold;
-	border: 2px solid #040404;
+`;
+
+const TextContainer = styled.div`
+	display: flex;
+	overflow: auto;
+	height: 80%;
 	& > .done {
 		text-decoration: line-through;
 	}
 `;
 
-const TextContainer = styled.div`
-	max-width: 80%;
-	overflow: auto;
-	max-height: 100%;
+const ButtonContainer = styled.div`
+	border: 1px solid darkGrey;
+	border-radius: 5px 5px;
 `;
 
-const ButtonContainer = styled.div`
-	align-self: center;
+const StyledButton = styled(Button)`
+	display: flex;
+	flex: 1 1 auto;
+	width: 80%;
+	background: red;
 `;
 
 const Todo = ({ todo, toggleTodo, deleteTodo }) => (
 	<StyledTodo>
 		<TextContainer>
-			<Button
-				bg='#040404'
+			<StyledButton
 				onClick={() => toggleTodo(todo.id)}
 				className={todo.done ? 'done' : undefined}
 			>
 				{todo.text}
-			</Button>
+			</StyledButton>
 		</TextContainer>
 		<ButtonContainer>
 			<Button

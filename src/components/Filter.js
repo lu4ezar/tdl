@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from 'rebass';
+import Paper from '@material-ui/core/Paper';
 
 const SuperButton = styled(Button)`
 	background: lightBlue;
@@ -17,13 +18,9 @@ const SuperButton = styled(Button)`
 	}
 `;
 
-const Container = styled.div`
+const Container = styled(Paper)`
 	display: flex;
 	width: 50%;
-	background: #324f5b;
-	&.active {
-		background: darkGreen;
-	}
 `;
 
 const Filter = ({ filter, setFilter }) => {

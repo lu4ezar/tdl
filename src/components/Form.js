@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-// import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
-
-// const Container = styled.div``;
 
 const Form = ({ addTodo, id }) => {
 	const [input, setInput] = useState('');

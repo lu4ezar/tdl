@@ -5,6 +5,7 @@ import UndoRedo from '../containers/UndoRedo';
 import Filter from '../containers/Filter';
 import { Flex, Heading } from 'rebass';
 import styled from 'styled-components';
+import Paper from '@material-ui/core/Paper';
 
 const OuterFlex = styled(Flex)`
 	height: auto;
@@ -13,11 +14,13 @@ const OuterFlex = styled(Flex)`
 	align-items: center;
 `;
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Paper)`
+	display: flex;
 	background: #c8daf7;
 	align-items: center;
+	justify-content: space-between;
 	padding: 3px;
-	width: 60%;
+	width: 50%;
 	margin-top: 1em;
 	margin-bottom: 1em;
 `;
