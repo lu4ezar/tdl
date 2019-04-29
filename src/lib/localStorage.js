@@ -1,4 +1,7 @@
-export const saveState = list => {
+// @flow
+import type { Todos } from '../types/todos';
+
+export const saveState = (list: Todos) => {
 	try {
 		const serializedState = JSON.stringify(list);
 		localStorage.setItem('list', serializedState);
@@ -7,9 +10,9 @@ export const saveState = list => {
 	}
 };
 
-export const loadState = () => {
+export const loadState = (): ?Todos => {
 	try {
-		const serializedState = localStorage.getItem('list');
+		const serializedState = localStorage.getItem('list') || '{}';
 		if (serializedState === null) {
 			return undefined;
 		}

@@ -1,20 +1,30 @@
+// @flow
 import undoable, { distinctState } from 'redux-undo';
+import type {
+	Id,
+	Text,
+	Todo,
+	Todos,
+	TodosAction
+} from '../../types/todos';
 
-const todos = (state = [], action) => {
+const createTodo = (id: Id, text: Text): Todo => ({
+	id,
+	text,
+	done: false
+});
+
+const toggleTodo = (todos: Todos, id: Id): Todos =>
+	todos.map(todo =>
+		todo.id === id ? { ...todo, done: !todo.done } : todo
+	);
+
+const todos = (state: Todos = [], action: TodosAction): Todos => {
 	switch (action.type) {
 		case 'ADD_TODO':
-			return [
-				{
-					id: action.id,
-					text: action.text,
-					done: false
-				},
-				...state
-			];
+			return [createTodo(action.id, action.text), ...state];
 		case 'TOGGLE_TODO':
-			return state.map(todo =>
-				todo.id === action.id ? { ...todo, done: !todo.done } : todo
-			);
+			return toggleTodo(state, action.id);
 		case 'DELETE_TODO':
 			return state.filter(todo => todo.id !== action.id);
 		default:
