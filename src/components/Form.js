@@ -8,7 +8,7 @@ const Form = ({ addTodo, id }) => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		const value = input.trim();
-		if (!value()) {
+		if (!value) {
 			return;
 		}
 		addTodo(value, id);
