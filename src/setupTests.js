@@ -4,7 +4,7 @@ import 'react-testing-library/cleanup-after-each';
 // this adds jest-dom's custom assertions
 import 'jest-dom/extend-expect';
 
-// move to other (specific) file (?)
+// move to other file
 const localStorageMock = {
     getItem: jest.fn(),
     setItem: jest.fn(),

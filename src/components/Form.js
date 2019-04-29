@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+// import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
+
+// const Container = styled.div``;
 
 const Form = ({ addTodo, id }) => {
 	const [input, setInput] = useState('');
@@ -15,19 +19,17 @@ const Form = ({ addTodo, id }) => {
 		setInput('');
 	};
 	return (
-		<div>
-			<h3>add new to-do</h3>
-			<form data-testid='form' onSubmit={handleSubmit}>
-				<label htmlFor='input'>Enter Text</label>
-				<input
-					data-testid='input'
-					id='input'
-					value={input}
-					onChange={handleChange}
-				/>
-				<button type='submit'>submit</button>
-			</form>
-		</div>
+		<form data-testid='form' onSubmit={handleSubmit}>
+			<label htmlFor='input' />
+			<input
+				data-testid='input'
+				id='input'
+				value={input}
+				onChange={handleChange}
+				placeholder='new todo'
+			/>
+			<Button type='submit'>Add</Button>
+		</form>
 	);
 };
 

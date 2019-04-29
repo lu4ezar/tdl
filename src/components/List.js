@@ -1,5 +1,11 @@
 import React from 'react';
 import Todo from './Todo';
+import styled from 'styled-components';
+
+const Container = styled.div`
+	height: 80vh;
+	width: 50%;
+`;
 
 const List = ({ todos, toggleTodo, deleteTodo }) => {
 	const getList = todos =>
@@ -13,10 +19,9 @@ const List = ({ todos, toggleTodo, deleteTodo }) => {
 		));
 
 	return (
-		<div>
-			<h2>list</h2>
-			<ul data-testid='ul'>{getList(todos)}</ul>
-		</div>
+		<Container>
+			<div data-testid='ul'>{getList(todos)}</div>
+		</Container>
 	);
 };
 

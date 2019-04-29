@@ -1,14 +1,15 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 const UndoRedo = ({ canUndo, canRedo, onUndo, onRedo }) => (
-	<>
-		<button onClick={onUndo} disabled={!canUndo}>
+	<div style={{ marginLeft: 'auto' }}>
+		<Button m={2} onClick={onUndo} bg='blue' disabled={!canUndo}>
 			Undo
-		</button>
-		<button onClick={onRedo} disabled={!canRedo}>
+		</Button>
+		<Button m={2} onClick={onRedo} disabled={!canRedo}>
 			Redo
-		</button>
-	</>
+		</Button>
+	</div>
 );
 
 export default UndoRedo;

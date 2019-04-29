@@ -7,6 +7,8 @@ import reducer from './redux/reducers/index';
 import { loadState, saveState } from './lib/localStorage';
 import { Provider } from 'react-redux';
 import type { Store } from './types';
+import 'normalize.css';
+import './index.css';
 
 const savedState = loadState();
 

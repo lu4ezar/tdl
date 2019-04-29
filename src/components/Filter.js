@@ -1,23 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from 'rebass';
 
-const Button = styled.button`
-	background: lightGreen;
+const SuperButton = styled(Button)`
+	background: lightBlue;
 	border: none;
 	flex: 1 1 0;
 	cursor: pointer;
+	color: black;
+	margin: 1em;
+	border: 1px solid black;
 	&.active {
 		pointer-events: none;
-		background: darkGreen;
+		background: #0e2447;
 		color: white;
 	}
 `;
 
-const ButtonGroup = styled.div`
-	background: magenta;
+const Container = styled.div`
 	display: flex;
-	width: 30vw;
-	border-radius: 5px;
+	width: 50%;
+	background: #324f5b;
 	&.active {
 		background: darkGreen;
 	}
@@ -28,29 +31,29 @@ const Filter = ({ filter, setFilter }) => {
 		setFilter(e.target.value);
 	};
 	return (
-		<ButtonGroup>
-			<Button
+		<Container>
+			<SuperButton
 				className={filter === 'SHOW_ALL' ? 'active' : ''}
 				value='SHOW_ALL'
 				onClick={onClick}
 			>
 				All
-			</Button>
-			<Button
+			</SuperButton>
+			<SuperButton
 				className={filter === 'SHOW_ACTIVE' ? 'active' : ''}
 				value='SHOW_ACTIVE'
 				onClick={onClick}
 			>
 				Active
-			</Button>
-			<Button
+			</SuperButton>
+			<SuperButton
 				className={filter === 'SHOW_COMPLETED' ? 'active' : ''}
 				value='SHOW_COMPLETED'
 				onClick={onClick}
 			>
 				Completed
-			</Button>
-		</ButtonGroup>
+			</SuperButton>
+		</Container>
 	);
 };
 
