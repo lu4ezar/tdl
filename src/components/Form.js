@@ -25,7 +25,7 @@ const Form = ({ addTodo, id }) => {
 				onChange={handleChange}
 				placeholder='new todo'
 			/>
-			<Button type='submit'>Add</Button>
+			<Button variant='contained' type='submit'>Add</Button>
 		</form>
 	);
 };

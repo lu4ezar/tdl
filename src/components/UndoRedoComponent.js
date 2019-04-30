@@ -9,10 +9,10 @@ const ButtonContainer = styled.div`
 
 const UndoRedo = ({ canUndo, canRedo, onUndo, onRedo }) => (
 	<ButtonContainer>
-		<Button m={2} onClick={onUndo} bg='blue' disabled={!canUndo}>
+		<Button variant='contained' m={2} onClick={onUndo} bg='blue' disabled={!canUndo}>
 			Undo
 		</Button>
-		<Button m={2} onClick={onRedo} disabled={!canRedo}>
+		<Button variant='contained' m={2} onClick={onRedo} disabled={!canRedo}>
 			Redo
 		</Button>
 	</ButtonContainer>

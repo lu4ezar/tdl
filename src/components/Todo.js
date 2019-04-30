@@ -48,6 +48,7 @@ const Todo = ({ todo, toggleTodo, deleteTodo }) => (
 		</TextContainer>
 		<ButtonContainer>
 			<Button
+				variant='contained' 
 				bg='#040404'
 				title={todo.done ? 'Mark as active' : 'Mark as done'}
 				onClick={() => toggleTodo(todo.id)}
@@ -56,6 +57,7 @@ const Todo = ({ todo, toggleTodo, deleteTodo }) => (
 			</Button>
 
 			<Button
+				variant='contained' 
 				bg='#040404'
 				title='Delete this todo'
 				onClick={() => deleteTodo(todo.id)}
