@@ -3,9 +3,10 @@ import Form from '../containers/AddForm';
 import VisibleList from '../containers/VisibleList';
 import UndoRedo from '../containers/UndoRedo';
 import Filter from '../containers/Filter';
-import { Flex, Heading } from 'rebass';
+import { Flex } from 'rebass';
 import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const OuterFlex = styled(Flex)`
 	height: auto;
@@ -31,14 +32,7 @@ const App = () => (
 		height='80%'
 		alignItems='right'
 	>
-		<Heading
-			color='#cccccc'
-			fontSize={5}
-			fontWeight='bold'
-			textAlign='right'
-		>
-			To-do App
-		</Heading>
+		<Typography variant='h3'>To-do App</Typography>
 		<VisibleList />
 		<StyledFlex>
 			<Form />
