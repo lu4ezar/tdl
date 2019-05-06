@@ -19,6 +19,9 @@ const toggleTodo = (todos: Todos, id: Id): Todos =>
 		todo.id === id ? { ...todo, done: !todo.done } : todo
 	);
 
+const deleteTodo = (todos: Todos, id: Id): Todos =>
+	todos.filter(todo => todo.id !== id);
+
 const todos = (state: Todos = [], action: TodosAction): Todos => {
 	switch (action.type) {
 		case 'ADD_TODO':
@@ -26,7 +29,7 @@ const todos = (state: Todos = [], action: TodosAction): Todos => {
 		case 'TOGGLE_TODO':
 			return toggleTodo(state, action.id);
 		case 'DELETE_TODO':
-			return state.filter(todo => todo.id !== action.id);
+			return deleteTodo(state, action.id);
 		default:
 			return state;
 	}
