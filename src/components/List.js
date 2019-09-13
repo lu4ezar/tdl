@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import Paper from '@material-ui/core/Paper';
 
 const Container = styled(Paper)`
-	max-height: 80%;
-	overflow: auto;
+	height: 80vh;
 	width: 50%;
 `;
 

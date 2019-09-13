@@ -29,7 +29,7 @@ const StyledFlex = styled(Paper)`
 const App = () => (
 	<OuterFlex
 		flexDirection='column'
-		height='80%'
+		height='100vh'
 		alignItems='right'
 	>
 		<Typography variant='h3'>To-do App</Typography>
